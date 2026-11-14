@@ -9,6 +9,9 @@
 <meta name="apple-mobile-web-app-title" content="100cims">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#2f6b4f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg:#f6f4ee;--surf:#fff;--tx:#1d2a22;--mut:#6b756e;--ac:#2f6b4f;--ac2:#e3efe8;--bd:#dcd8cc}
@@ -276,6 +279,7 @@ $("ex").onclick=()=>{const t=$("ta");t.style.display="block";t.value=JSON.string
 $("im").onclick=()=>{const t=$("ta");if(t.style.display==="none"||!t.value.trim()){t.style.display="block";t.value="";t.focus();return}
   try{const o=JSON.parse(t.value);S=Object.assign({done:{},extra:[],edits:{}},o);save();render();t.style.display="none"}catch(e){alert("JSON no vàlid")}};
 render();
+if("serviceWorker" in navigator&&location.protocol.startsWith("http")){navigator.serviceWorker.register("sw.js").catch(()=>{})}
 </script>
 </body>
 </html>
